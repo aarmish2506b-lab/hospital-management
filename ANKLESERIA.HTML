@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ankleseria Hospital | Quality Healthcare Services</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #1a73e8;
+            --secondary: #0d47a1;
+            --accent: #e8f0fe;
+            --text: #333;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+            --danger: #dc3545;
+            --warning: #ffc107;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text);
+            background-color: #fff;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            width: 70px;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-top {
+            background-color: var(--secondary);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.9rem;
+        }
+        
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .header-contact span {
+            margin-right: 20px;
+        }
+        
+        .header-contact i {
+            margin-right: 5px;
+        }
+        
+        .header-social a {
+            margin-left: 15px;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 10px;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.8rem;
+            color: var(--secondary);
+        }
+        
+        .logo-text p {
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .nav-menu {
+            display: flex;
+        }
+        
+        .nav-menu li {
+            margin-left: 25px;
+            position: relative;
+        }
+        
+        .nav-menu a {
+            font-weight: 600;
+            color: var(--dark);
+            transition: color 0.3s ease;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+        
+        .nav-menu a.active {
+            color: var(--primary);
+        }
+        
+        .nav-menu a.active::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            bottom: -5px;
+            left: 0;
+        }
+        
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 120px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            height: 80px;
+            background-color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            color: var(--primary);
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--secondary);
+        }
+        
+        /* About Section */
+        .about {
+            background-color: var(--light);
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--secondary);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Departments Section */
+        .departments-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            margin-bottom: 40px;
+        }
+        
+        .tab-btn {
+            padding: 10px 20px;
+            background-color: var(--light);
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .department-content {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .department-text {
+            flex: 1;
+        }
+        
+        .department-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .department-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Doctors Section */
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .doctor-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .doctor-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .doctor-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .doctor-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .doctor-card:hover .doctor-image img {
+            transform: scale(1.1);
+        }
+        
+        .doctor-info {
+            padding: 20px;
+        }
+        
+        .doctor-info h3 {
+            margin-bottom: 5px;
+            color: var(--secondary);
+        }
+        
+        .doctor-info p {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .doctor-info .specialty {
+            color: #666;
+            font-weight: normal;
+            margin-bottom: 15px;
+        }
+        
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--light);
+        }
+        
+        .testimonial-slider {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+        
+        .testimonial {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            text-align: center;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+        }
+        
+        .testimonial-text::before,
+        .testimonial-text::after {
+            content: '"';
+            font-size: 3rem;
+            color: var(--accent);
+            position: absolute;
+        }
+        
+        .testimonial-text::before {
+            top: -20px;
+            left: -10px;
+        }
+        
+        .testimonial-text::after {
+            bottom: -40px;
+            right: -10px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .author-image {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        
+        .author-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .author-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Appointment Section */
+        .appointment {
+            background: linear-gradient(rgba(26, 115, 232, 0.9), rgba(13, 71, 161, 0.9)), url('https://images.unsplash.com/photo-1586773860418-d37222d8fce3?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .appointment h2 {
+            margin-bottom: 10px;
+        }
+        
+        .appointment p {
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .appointment-form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            backdrop-filter: blur(10px);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .form-group {
+            flex: 1;
+            text-align: left;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary);
+            bottom: 0;
+            left: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+        
+        .contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--primary);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 20px 0;
+            text-align: center;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content,
+            .department-content {
+                flex-direction: column;
+            }
+            
+            .about-image,
+            .department-image {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .header-top .container {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .header-contact span {
+                margin-right: 10px;
+            }
+            
+            .header-social a {
+                margin: 0 7px;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 80%;
+                height: 100vh;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: right 0.3s ease;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin: 15px 0;
+            }
+            
+            .mobile-toggle {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .hero {
+                padding: 80px 0;
+            }
+            
+            .hero h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-top">
+            <div class="container">
+                <div class="header-contact">
+                    <span><i>📞</i> +1 (555) 123-4567</span>
+                    <span><i>✉️</i> info@ankleseriahospital.com</span>
+                </div>
+                <div class="header-social">
+                    <a href="#"><i>f</i></a>
+                    <a href="#"><i>t</i></a>
+                    <a href="#"><i>in</i></a>
+                    <a href="#"><i>ig</i></a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <div class="logo-placeholder">🏥</div>
+                    <div class="logo-text">
+                        <h1>Ankleseria Hospital</h1>
+                        <p>Compassionate Care, Advanced Medicine</p>
+                    </div>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#departments">Departments</a></li>
+                    <li><a href="#doctors">Doctors</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-toggle">☰</div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h2>Your Health is Our Priority</h2>
+            <p>Ankleseria Hospital provides comprehensive healthcare services with state-of-the-art technology and a team of experienced medical professionals.</p>
+            <div class="hero-buttons">
+                <a href="#appointment" class="btn">Book an Appointment</a>
+                <a href="#services" class="btn btn-outline">Our Services</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We offer a wide range of medical services to meet all your healthcare needs with compassion and expertise.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">❤️</div>
+                    <div class="service-content">
+                        <h3>Cardiology</h3>
+                        <p>Comprehensive heart care with advanced diagnostic and treatment options for all cardiac conditions.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <div class="service-content">
+                        <h3>Neurology</h3>
+                        <p>Expert diagnosis and treatment for disorders of the nervous system, including stroke and epilepsy.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🦴</div>
+                    <div class="service-content">
+                        <h3>Orthopedics</h3>
+                        <p>Specialized care for bone, joint, and muscle conditions with advanced surgical and non-surgical treatments.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👶</div>
+                    <div class="service-content">
+                        <h3>Pediatrics</h3>
+                        <p>Comprehensive healthcare for infants, children, and adolescents in a child-friendly environment.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🔬</div>
+                    <div class="service-content">
+                        <h3>Laboratory</h3>
+                        <p>State-of-the-art diagnostic testing with accurate and timely results for effective treatment planning.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🚑</div>
+                    <div class="service-content">
+                        <h3>Emergency Care</h3>
+                        <p>24/7 emergency services with a dedicated team ready to handle any medical crisis.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>About Ankleseria Hospital</h3>
+                    <p>Founded in 1985, Ankleseria Hospital has been at the forefront of medical excellence, providing comprehensive healthcare services to our community for over three decades.</p>
+                    <p>Our mission is to deliver exceptional patient care through advanced medical technology, highly skilled professionals, and a compassionate approach to healing.</p>
+                    <p>With over 200 beds, state-of-the-art operation theaters, and advanced diagnostic facilities, we are equipped to handle a wide range of medical conditions.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <div style="width:100%;height:300px;background-color:#e0e0e0;display:flex;align-items:center;justify-content:center;color:#666;">Hospital Building Image</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Departments Section -->
+    <section id="departments" class="departments">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Departments</h2>
+                <p>Explore our specialized medical departments, each equipped with advanced technology and staffed by expert healthcare professionals.</p>
+            </div>
+            <div class="departments-tabs">
+                <button class="tab-btn active" data-tab="cardiology">Cardiology</button>
+                <button class="tab-btn" data-tab="neurology">Neurology</button>
+                <button class="tab-btn" data-tab="orthopedics">Orthopedics</button>
+                <button class="tab-btn" data-tab="pediatrics">Pediatrics</button>
+                <button class="tab-btn" data-tab="oncology">Oncology</button>
+            </div>
+            <div class="tab-content active" id="cardiology">
+                <div class="department-content">
+                    <div class="department-text">
+                        <h3>Cardiology Department</h3>
+                        <p>Our Cardiology Department offers comprehensive heart care with state-of-the-art diagnostic and treatment facilities. We specialize in the prevention, diagnosis, and treatment of cardiovascular diseases.</p>
+                        <p>Our team of board-certified cardiologists, cardiac surgeons, and support staff work together to provide personalized care for each patient.</p>
+                        <ul>
+                            <li>• Cardiac Catheterization</li>
+                            <li>• Angioplasty and Stenting</li>
+                            <li>• Pacemaker Implantation</li>
+                            <li>• Cardiac Rehabilitation</li>
+                        </ul>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                    <div class="department-image">
+                        <div style="width:100%;height:300px;background-color:#e0e0e0;display:flex;align-items:center;justify-content:center;color:#666;">Cardiology Department Image</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Other department content would go here -->
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section id="doctors" class="doctors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Medical Experts</h2>
+                <p>Meet our team of highly qualified and experienced doctors dedicated to providing you with the best medical care.</p>
+            </div>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <div style="width:100%;height:100%;background-color:#e0e0e0;display:flex;align-items:center;justify-content:center;color:#666;">Doctor Image</div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>Cardiologist</p>
+                        <p class="specialty">MD, FACC</p>
+                        <p>15+ years of experience in interventional cardiology</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <div style="width:100%;height:100%;background-color:#e0e0e0;display:flex;align-items:center;justify-content:center;color:#666;">Doctor Image</div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <p>Neurologist</p>
+                        <p class="specialty">MD, PhD</p>
+                        <p>Specialized in stroke treatment and neurological disorders</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <div style="width:100%;height:100%;background-color:#e0e0e0;display:flex;align-items:center;justify-content:center;color:#666;">Doctor Image</div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. Emily Rodriguez</h3>
+                        <p>Orthopedic Surgeon</p>
+                        <p class="specialty">MD, FACS</p>
+                        <p>Expert in joint replacement and sports medicine</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image">
+                        <div style="width:100%;height:100%;background-color:#e0e0e0;display:flex;align-items:center;justify-content:center;color:#666;">Doctor Image</div>
+                    </div>
+                    <div class="doctor-info">
+                        <h3>Dr. James Wilson</h3>
+                        <p>Pediatrician</p>
+                        <p class="specialty">MD, FAAP</p>
+                        <p>Dedicated to children's health and developmental care</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>Patient Testimonials</h2>
+                <p>Hear what our patients have to say about their experience at Ankleseria Hospital.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial">
+                    <div class="testimonial-text">
+                        <p>The care I received at Ankleseria Hospital was exceptional. The doctors were knowledgeable and compassionate, and the staff went above and beyond to make me comfortable during my stay.</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <div style="width:100%;height:100%;background-color:#e0e0e0;display:flex;align-items:center;justify-content:center;color:#666;">Photo</div>
+                        </div>
+                        <div class="author-info">
+                            <h4>Robert Martinez</h4>
+                            <p>Cardiac Patient</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Appointment Section -->
+    <section id="appointment" class="appointment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Book an Appointment</h2>
+                <p>Schedule your visit with our specialists. We're here to provide you with the best medical care.</p>
+            </div>
+            <div class="appointment-form">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" placeholder="Your Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="Your Email">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="Your Phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="department">Department</label>
+                            <select id="department" class="form-control">
+                                <option value="">Select Department</option>
+                                <option value="cardiology">Cardiology</option>
+                                <option value="neurology">Neurology</option>
+                                <option value="orthopedics">Orthopedics</option>
+                                <option value="pediatrics">Pediatrics</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="date">Preferred Date</label>
+                            <input type="date" id="date" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="time">Preferred Time</label>
+                            <select id="time" class="form-control">
+                                <option value="">Select Time</option>
+                                <option value="morning">Morning (9AM - 12PM)</option>
+                                <option value="afternoon">Afternoon (1PM - 4PM)</option>
+                                <option value="evening">Evening (5PM - 7PM)</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Additional Message</label>
+                        <textarea id="message" class="form-control" rows="4" placeholder="Any specific requirements or concerns"></textarea>
+                    </div>
+                    <button type="submit" class="btn" style="width:100%;margin-top:15px;">Book Appointment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Ankleseria Hospital</h3>
+                    <p>Providing quality healthcare services with compassion and advanced medical technology since 1985.</p>
+                    <div class="contact-info">
+                        <ul>
+                            <li><i>📍</i> 123 Medical Center Drive, Health City, HC 12345</li>
+                            <li><i>📞</i> +1 (555) 123-4567</li>
+                            <li><i>✉️</i> info@ankleseriahospital.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#departments">Departments</a></li>
+                        <li><a href="#doctors">Our Doctors</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Cardiology</a></li>
+                        <li><a href="#">Neurology</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">Emergency Care</a></li>
+                        <li><a href="#">Laboratory Services</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Opening Hours</h3>
+                    <ul class="footer-links">
+                        <li>Monday - Friday: 8:00 AM - 8:00 PM</li>
+                        <li>Saturday: 9:00 AM - 5:00 PM</li>
+                        <li>Sunday: 10:00 AM - 4:00 PM</li>
+                        <li>Emergency: 24/7</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Ankleseria Hospital. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        document.querySelector('.mobile-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-menu').classList.toggle('active');
+        });
+
+        // Department Tabs
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 100,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    document.querySelector('.nav-menu').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

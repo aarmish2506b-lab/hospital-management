@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicare General Hospital</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: #0056b3;
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo h1 {
+            font-size: 1.8rem;
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            font-size: 2rem;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 25px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        nav ul li a:hover {
+            color: #a8d2ff;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(rgba(0, 86, 179, 0.8), rgba(0, 86, 179, 0.8)), url('https://source.unsplash.com/random/1600x900/?hospital') no-repeat center center/cover;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #ff5252;
+        }
+        
+        /* Services section */
+        .services {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 2rem;
+            color: #0056b3;
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: #666;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .service-icon {
+            background: #0056b3;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 2.5rem;
+        }
+        
+        .service-content {
+            padding: 25px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: #0056b3;
+        }
+        
+        /* About section */
+        .about {
+            padding: 80px 0;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Doctors section */
+        .doctors {
+            padding: 80px 0;
+            background: #f8f9fa;
+        }
+        
+        .doctors-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+        
+        .doctor-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .doctor-image {
+            height: 250px;
+            background-color: #ddd;
+            background-position: center;
+            background-size: cover;
+        }
+        
+        .doctor-info {
+            padding: 20px;
+        }
+        
+        .doctor-info h3 {
+            margin-bottom: 5px;
+            color: #0056b3;
+        }
+        
+        .doctor-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        /* Contact section */
+        .contact {
+            padding: 80px 0;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .info-icon {
+            background: #0056b3;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        textarea.form-control {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: #003366;
+            color: white;
+            padding: 60px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column h3 {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-column h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 40px;
+            height: 2px;
+            background: #ff6b6b;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column ul li a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+            }
+            
+            .about-content, .contact-container {
+                flex-direction: column;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <span class="logo-icon">🏥</span>
+                <h1>Medicare General Hospital</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#doctors">Doctors</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h2>Your Health is Our Priority</h2>
+            <p>Medicare General Hospital provides comprehensive healthcare services with state-of-the-art technology and compassionate care.</p>
+            <a href="#contact" class="btn">Book an Appointment</a>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Medical Services</h2>
+                <p>We offer a wide range of medical services to meet all your healthcare needs.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">🫀</div>
+                    <div class="service-content">
+                        <h3>Cardiology</h3>
+                        <p>Comprehensive heart care with advanced diagnostic tools and treatment options for all cardiac conditions.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🧠</div>
+                    <div class="service-content">
+                        <h3>Neurology</h3>
+                        <p>Expert diagnosis and treatment for disorders of the nervous system, including stroke and epilepsy.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🦴</div>
+                    <div class="service-content">
+                        <h3>Orthopedics</h3>
+                        <p>Specialized care for bone, joint, and muscle conditions with advanced surgical and non-surgical treatments.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👶</div>
+                    <div class="service-content">
+                        <h3>Pediatrics</h3>
+                        <p>Comprehensive healthcare for children from infancy through adolescence with specialized pediatric care.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">👁️</div>
+                    <div class="service-content">
+                        <h3>Ophthalmology</h3>
+                        <p>Complete eye care services including vision correction, cataract surgery, and treatment for eye diseases.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">🦷</div>
+                    <div class="service-content">
+                        <h3>Dental Care</h3>
+                        <p>Comprehensive dental services including preventive care, restorative treatments, and cosmetic dentistry.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Medicare Hospital</h2>
+                <p>Learn more about our history, mission, and commitment to healthcare excellence.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Providing Quality Healthcare Since 1985</h3>
+                    <p>Medicare General Hospital has been serving the community for over three decades with a commitment to excellence in patient care. Our state-of-the-art facility is equipped with the latest medical technology and staffed by highly skilled healthcare professionals.</p>
+                    <p>We believe in treating the whole person, not just the illness, and our patient-centered approach ensures that you receive personalized care tailored to your specific needs.</p>
+                    <p>Our mission is to provide accessible, high-quality healthcare to all members of our community, regardless of their background or financial situation.</p>
+                    <a href="#contact" class="btn" style="margin-top: 20px;">Learn More</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://source.unsplash.com/random/600x400/?hospital-building" alt="Medicare Hospital Building">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Doctors Section -->
+    <section class="doctors" id="doctors">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Medical Specialists</h2>
+                <p>Meet our team of experienced and dedicated healthcare professionals.</p>
+            </div>
+            <div class="doctors-grid">
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('https://source.unsplash.com/random/300x300/?doctor')"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Sarah Johnson</h3>
+                        <p>Cardiologist</p>
+                        <p>15+ years of experience in treating heart conditions.</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('https://source.unsplash.com/random/300x300/?doctor,male')"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Michael Chen</h3>
+                        <p>Neurologist</p>
+                        <p>Specialized in stroke treatment and neurological disorders.</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('https://source.unsplash.com/random/300x300/?doctor,female')"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. Emily Rodriguez</h3>
+                        <p>Pediatrician</p>
+                        <p>Dedicated to children's health and wellness.</p>
+                    </div>
+                </div>
+                <div class="doctor-card">
+                    <div class="doctor-image" style="background-image: url('https://source.unsplash.com/random/300x300/?doctor,asian')"></div>
+                    <div class="doctor-info">
+                        <h3>Dr. James Wilson</h3>
+                        <p>Orthopedic Surgeon</p>
+                        <p>Expert in joint replacement and sports injuries.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch with us for appointments, inquiries, or emergencies.</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Our Contact Information</h3>
+                    <div class="info-item">
+                        <div class="info-icon">📍</div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>123 Healthcare Avenue, Medical District, City 12345</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">📞</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>Main: (123) 456-7890<br>Emergency: (123) 456-7891</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@medicarehospital.com<br>appointments@medicarehospital.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">🕒</div>
+                        <div>
+                            <h4>Hours</h4>
+                            <p>Monday - Friday: 8:00 AM - 8:00 PM<br>Saturday - Sunday: 9:00 AM - 5:00 PM<br>Emergency: 24/7</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" class="form-control" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Medicare Hospital</h3>
+                    <p>Providing quality healthcare services with compassion and excellence since 1985.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#doctors">Our Doctors</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#">Cardiology</a></li>
+                        <li><a href="#">Neurology</a></li>
+                        <li><a href="#">Orthopedics</a></li>
+                        <li><a href="#">Pediatrics</a></li>
+                        <li><a href="#">Emergency Care</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Emergency</h3>
+                    <p>For medical emergencies, please call:</p>
+                    <p style="font-size: 1.2rem; font-weight: bold; margin: 10px 0;">(123) 456-7891</p>
+                    <p>Or visit our emergency department open 24/7.</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Medicare General Hospital. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
